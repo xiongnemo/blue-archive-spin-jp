@@ -87,13 +87,13 @@ def extractCharacter(src, dest):
             for id, object in asset.objects.items():
                 # print(id, object)
                 # extract skel & atlas
-                if object.type == "TextAsset":
-                    data = object.read()
-                    if ".atlas" in data.name or ".skel" in data.name:
-                        print(data.name)
-                        extractTextAsset(object, dest)
+#                 if object.type == "TextAsset":
+#                     data = object.read()
+#                     if ".atlas" in data.name or ".skel" in data.name:
+#                         print(data.name)
+#                         extractTextAsset(object, dest)
                 # extract texture
-                elif object.type == "Texture2D":
+                if object.type == "Texture2D":
                     data = object.read()
 
                     print(data.name + ".png")
