@@ -93,7 +93,7 @@ def extractCharacter(src, dest):
 #                         print(data.name)
 #                         extractTextAsset(object, dest)
                 # extract texture
-                if "Texture2D" in type(object):
+                if "Texture2D" in str(type(object)):
                     data = object.read()
 
                     print(data.name + ".png")
