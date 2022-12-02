@@ -45,9 +45,10 @@ def getModelsList():
     res_url = base_url + '/Android/bundleDownloadInfo.json'
     res = requests.get(res_url).json()
     for asset in res["BundleFiles"]:
-        if "spinecharacters-" in asset["Name"] or "spinelobbies-" in asset["Name"] or "spinebackground-" in asset["Name"]:
+        # nemo: download all
+        # if "spinecharacters-" in asset["Name"] or "spinelobbies-" in asset["Name"] or "spinebackground-" in asset["Name"]:
             # append url and path
-            data.append(base_url + '/Android/' + asset["Name"])
+        data.append(base_url + '/Android/' + asset["Name"])
     return data
 
 
@@ -130,7 +131,7 @@ if __name__ == "__main__":
     # get model list
     model_list = getModelsList()
 
-    # download list of model list
+    # download list of model listquan
     for index, model in enumerate(model_list, start=1):
         print("="*30)
         print(f"{index}/{len(model_list)}")
@@ -145,9 +146,9 @@ if __name__ == "__main__":
             continue
 
         # spinebackground, spinecharacters and spinelobbies only
-        character_name = ''.join(fname.split("spinecharacters-")[1].split("-")[0] if "spinecharacters" in fname else fname.split(
-            "spinelobbies-")[1].split("-")[0] if "spinelobbies" in fname else fname.split("spinebackground-")[1].split("-")[0])
-        destExtract = f"./assets/spine/{character_name}"
+#         character_name = ''.join(fname.split("spinecharacters-")[1].split("-")[0] if "spinecharacters" in fname else fname.split(
+#             "spinelobbies-")[1].split("-")[0] if "spinelobbies" in fname else fname.split("spinebackground-")[1].split("-")[0])
+        destExtract = f"./assets/{fname}"
 
         # skip if already exists
         if option["skipExistingAssets"] and os.path.isfile(destExtract):
