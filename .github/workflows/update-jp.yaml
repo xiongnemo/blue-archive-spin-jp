@@ -24,12 +24,12 @@ jobs:
       - name: Retrieving models
         run: |
           python ./py/getModelsJapan.py
-      - name: Generating models.json
-        run: |
-          python ./py/generateModelsJson.py
-      - name: Generating audio.json
-        run: |
-          python ./py/generateAudioJsonJapan.py
+#       - name: Generating models.json
+#         run: |
+#           python ./py/generateModelsJson.py
+#       - name: Generating audio.json
+#         run: |
+#           python ./py/generateAudioJsonJapan.py
       - name: Commit files
         run: |
           git config --local user.email "ucihaibna@yahoo.com"
